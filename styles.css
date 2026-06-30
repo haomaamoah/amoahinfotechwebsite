@@ -23,6 +23,7 @@ body {
   background: var(--white);
   font-family: "Inter", Arial, sans-serif;
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 a {
@@ -38,6 +39,51 @@ img {
 .container {
   width: min(1120px, calc(100% - 40px));
   margin: 0 auto;
+}
+
+.splash-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 50% 35%, rgba(34, 118, 188, 0.16), transparent 34%),
+    var(--white);
+  animation: splashExit 850ms ease 1450ms forwards;
+  pointer-events: none;
+}
+
+.splash-loader img {
+  width: min(440px, 76vw);
+  opacity: 0;
+  filter: drop-shadow(0 28px 54px rgba(34, 118, 188, 0.22));
+  animation: splashLogo 1400ms ease forwards;
+}
+
+@keyframes splashLogo {
+  0% {
+    opacity: 0;
+    transform: translateY(14px) scale(0.94);
+  }
+
+  45%,
+  80% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  100% {
+    opacity: 0.94;
+    transform: translateY(0) scale(0.985);
+  }
+}
+
+@keyframes splashExit {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
 }
 
 .site-header {
@@ -66,10 +112,11 @@ img {
 }
 
 .brand img {
-  width: 54px;
+  width: 92px;
   height: 54px;
   border-radius: 14px;
-  object-fit: cover;
+  object-fit: contain;
+  background: var(--white);
   box-shadow: 0 10px 28px rgba(34, 118, 188, 0.18);
 }
 
@@ -89,11 +136,30 @@ img {
 }
 
 .hero {
+  position: relative;
   overflow: hidden;
   padding: 96px 0 74px;
   background:
     radial-gradient(circle at 20% 20%, rgba(34, 118, 188, 0.16), transparent 28%),
     linear-gradient(135deg, #ffffff 0%, #edf6ff 100%);
+}
+
+.hero::before {
+  position: absolute;
+  top: 36px;
+  right: max(-120px, -8vw);
+  width: min(620px, 62vw);
+  aspect-ratio: 1242 / 848;
+  content: "";
+  background: url("assets/splash_logo.png") center / contain no-repeat;
+  opacity: 0.08;
+  filter: blur(0.2px) saturate(1.15);
+  pointer-events: none;
+}
+
+.hero-grid {
+  position: relative;
+  z-index: 1;
 }
 
 .hero-grid,
@@ -190,14 +256,16 @@ img {
 
 .hero-card {
   padding: 34px;
+  background: #f7f7f7;
 }
 
 .hero-card img {
-  width: 104px;
-  height: 104px;
-  margin-bottom: 28px;
+  width: 100%;
+  height: 220px;
+  margin: 0 auto 30px;
   border-radius: 24px;
-  object-fit: cover;
+  object-fit: contain;
+  background: #f7f7f7;
 }
 
 .hero-card h2 {
@@ -359,8 +427,13 @@ img {
 }
 
 .founder-card img {
-  width: min(260px, 70%);
+  width: 100%;
+  height: auto;
+  max-height: none;
   border-radius: 36px;
+  object-fit: contain;
+  object-position: center;
+  box-shadow: 0 24px 46px rgba(13, 27, 42, 0.18);
 }
 
 .founder-card p {
@@ -397,8 +470,9 @@ img {
 }
 
 .footer-brand img {
-  width: 44px;
+  width: 78px;
   height: 44px;
+  object-fit: contain;
 }
 
 .site-footer p {
@@ -493,5 +567,17 @@ img {
 
   .brand span {
     font-size: 0.92rem;
+  }
+
+  .founder-card img {
+    max-height: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .splash-loader,
+  .splash-loader img {
+    animation-duration: 1ms;
+    animation-delay: 0ms;
   }
 }

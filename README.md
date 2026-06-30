@@ -8,6 +8,8 @@ Static business website for AMOAH INFOTECH, an AI-first software engineering com
 - `terms.html` - Terms and conditions page.
 - `styles.css` - Shared responsive styling.
 - `assets/logo.png` - Business logo.
+- `assets/splash_logo.png` - Splash screen and hero background brand artwork.
+- `assets/founder.png` - Founder portrait used in the founder section.
 - `assets/terms-and-conditions.pdf` - Downloadable PDF copy of the terms.
 
 ## Preview Locally
