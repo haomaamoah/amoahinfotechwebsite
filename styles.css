@@ -1,12 +1,13 @@
 :root {
-  --blue: #2276bc;
-  --blue-dark: #0c4e86;
-  --ink: #0d1b2a;
-  --muted: #5d6f82;
-  --line: #d9e4ee;
-  --surface: #f4f8fc;
+  --blue: #1769e0;
+  --blue-dark: #0c3b8c;
+  --ink: #111827;
+  --muted: #526174;
+  --line: #d6dce5;
+  --surface: #f1f3f5;
+  --paper: #fbfaf7;
   --white: #ffffff;
-  --shadow: 0 24px 60px rgba(13, 27, 42, 0.12);
+  --shadow: 0 18px 40px rgba(17, 24, 39, 0.09);
 }
 
 * {
@@ -20,8 +21,8 @@ html {
 body {
   margin: 0;
   color: var(--ink);
-  background: var(--white);
-  font-family: "Inter", Arial, sans-serif;
+  background: var(--paper);
+  font-family: "DM Sans", sans-serif;
   line-height: 1.6;
   overflow-x: hidden;
 }
@@ -90,8 +91,8 @@ img {
   position: sticky;
   top: 0;
   z-index: 20;
-  border-bottom: 1px solid rgba(217, 228, 238, 0.8);
-  background: rgba(255, 255, 255, 0.92);
+  border-bottom: 1px solid rgba(214, 220, 229, 0.92);
+  background: rgba(251, 250, 247, 0.94);
   backdrop-filter: blur(16px);
 }
 
@@ -107,8 +108,9 @@ img {
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  font-weight: 800;
-  letter-spacing: 0.04em;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0;
 }
 
 .brand img {
@@ -127,7 +129,7 @@ img {
   gap: 22px;
   color: var(--muted);
   font-size: 0.95rem;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .nav-links a:hover,
@@ -138,10 +140,10 @@ img {
 .hero {
   position: relative;
   overflow: hidden;
-  padding: 96px 0 74px;
+  padding: 112px 0 92px;
   background:
-    radial-gradient(circle at 20% 20%, rgba(34, 118, 188, 0.16), transparent 28%),
-    linear-gradient(135deg, #ffffff 0%, #edf6ff 100%);
+    radial-gradient(circle at 80% 10%, rgba(23, 105, 224, 0.14), transparent 30%),
+    linear-gradient(115deg, var(--paper) 0%, #eaf1fb 100%);
 }
 
 .hero::before {
@@ -183,9 +185,10 @@ img {
 .page-hero h1 {
   max-width: 780px;
   margin: 0;
-  font-size: clamp(2.6rem, 7vw, 5.4rem);
-  line-height: 0.98;
-  letter-spacing: -0.07em;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(2.8rem, 7vw, 5.8rem);
+  line-height: 0.94;
+  letter-spacing: -0.06em;
 }
 
 .hero-text {
@@ -198,8 +201,8 @@ img {
 .eyebrow {
   margin: 0 0 14px;
   color: var(--blue);
-  font-size: 0.78rem;
-  font-weight: 800;
+  font-size: 0.72rem;
+  font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
 }
@@ -217,9 +220,9 @@ img {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 50px;
-  border-radius: 999px;
-  padding: 0 22px;
+  min-height: 52px;
+  border-radius: 4px;
+  padding: 0 20px;
   border: 1px solid transparent;
   font-weight: 800;
   transition:
@@ -234,14 +237,14 @@ img {
 
 .btn.primary {
   color: var(--white);
-  background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+  background: var(--blue);
   box-shadow: 0 18px 35px rgba(34, 118, 188, 0.28);
 }
 
 .btn.secondary {
   color: var(--blue-dark);
   border-color: var(--line);
-  background: var(--white);
+  background: transparent;
 }
 
 .hero-card,
@@ -249,23 +252,24 @@ img {
 .founder-card,
 .contact-card {
   border: 1px solid var(--line);
-  border-radius: 30px;
-  background: rgba(255, 255, 255, 0.88);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.82);
   box-shadow: var(--shadow);
 }
 
 .hero-card {
-  padding: 34px;
-  background: #f7f7f7;
+  padding: 30px;
+  background: var(--white);
+  box-shadow: 12px 12px 0 rgba(23, 105, 224, 0.12), var(--shadow);
 }
 
 .hero-card img {
   width: 100%;
   height: 220px;
   margin: 0 auto 30px;
-  border-radius: 24px;
+  border-radius: 4px;
   object-fit: contain;
-  background: #f7f7f7;
+  background: var(--surface);
 }
 
 .hero-card h2 {
@@ -309,7 +313,7 @@ img {
 }
 
 .section {
-  padding: 88px 0;
+  padding: 104px 0;
 }
 
 .muted {
@@ -329,7 +333,8 @@ img {
   margin: 0;
   font-size: clamp(2rem, 4vw, 3.2rem);
   line-height: 1.06;
-  letter-spacing: -0.055em;
+  font-family: "Space Grotesk", sans-serif;
+  letter-spacing: -0.045em;
 }
 
 .intro p,
@@ -349,12 +354,22 @@ img {
 .cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
+  gap: 1px;
+  border: 1px solid var(--line);
+  background: var(--line);
 }
 
 .card {
-  padding: 28px;
+  min-height: 218px;
+  padding: 26px;
+  border: 0;
+  border-radius: 0;
+  background: var(--paper);
   box-shadow: none;
+}
+
+.card:nth-child(3n + 2) {
+  background: #f6f8fb;
 }
 
 .card h3 {
@@ -376,8 +391,8 @@ img {
 .tag-cloud span,
 .logo-grid span {
   border: 1px solid var(--line);
-  border-radius: 999px;
-  padding: 10px 14px;
+  border-radius: 3px;
+  padding: 9px 12px;
   background: var(--white);
   color: var(--blue-dark);
   font-weight: 700;
@@ -388,7 +403,7 @@ img {
   color: var(--white);
   background:
     radial-gradient(circle at 15% 15%, rgba(255, 255, 255, 0.12), transparent 24%),
-    linear-gradient(135deg, #081827, #0c4e86);
+    linear-gradient(135deg, #111827, #173d70);
 }
 
 .dark .eyebrow,
@@ -430,7 +445,7 @@ img {
   width: 100%;
   height: auto;
   max-height: none;
-  border-radius: 36px;
+  border-radius: 4px;
   object-fit: contain;
   object-position: center;
   box-shadow: 0 24px 46px rgba(13, 27, 42, 0.18);
@@ -455,7 +470,7 @@ img {
   text-align: center;
   background:
     linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)),
-    radial-gradient(circle at 50% 0%, rgba(34, 118, 188, 0.24), transparent 44%);
+    radial-gradient(circle at 50% 0%, rgba(23, 105, 224, 0.18), transparent 44%);
 }
 
 .contact-card p {
@@ -466,7 +481,7 @@ img {
 .site-footer {
   padding: 42px 0;
   border-top: 1px solid var(--line);
-  background: #fbfdff;
+  background: #eef1f4;
 }
 
 .footer-brand img {
@@ -489,8 +504,8 @@ img {
 .page-hero {
   padding: 92px 0 58px;
   background:
-    radial-gradient(circle at 20% 10%, rgba(34, 118, 188, 0.16), transparent 30%),
-    linear-gradient(135deg, #ffffff 0%, #f0f7ff 100%);
+    radial-gradient(circle at 20% 10%, rgba(23, 105, 224, 0.14), transparent 30%),
+    linear-gradient(135deg, var(--paper) 0%, #eaf1fb 100%);
 }
 
 .page-hero p {
